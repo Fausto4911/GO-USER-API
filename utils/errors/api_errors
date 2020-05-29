@@ -1,0 +1,26 @@
+[
+{
+  "id": 1234,
+  "email": "test@test.com",
+  "password": "tesstpass123",
+  "first_name": "Emmanuel",
+  "last_name": "Torres",
+  "create_at": "",
+  "update_at": ""
+},
+{
+  "message": "user 1234 not found",
+  "status": 404,
+  "error": "not_found"
+},
+{
+"message": "invalid json body",
+"status": 400,
+"error": "bad_request"
+},
+{
+"message": "database is down",
+"status": 500,
+"error": "internal_server_error"
+}
+  ]
