@@ -12,6 +12,5 @@ const (
 func mapUrls() {
 	router.GET("/ping", controllers.Ping)
 	router.GET(fmt.Sprintf("%s%s", USERS_PATH, "/:user_id"), controllers.GetUser)
-	//router.GET(fmt.Sprintf("%s%s", USERS_PATH, "/search"), controllers.SearchUser)
 	router.POST(USERS_PATH, controllers.CreateUser)
 }
