@@ -27,17 +27,17 @@ func CreateUser(c *gin.Context) {
 	if err != nil {
 		//TODO: handle json parse error
 		r := errors.NewBadRequestError("Ivalid Json")
-		c.JSON(r.Status,r)
+		c.JSON(r.Status, r)
 		return
 	}
-   u, e := services.CreateUser(user)
-   if e != nil {
-   	//TODO: handle user creation error
-   	c.JSON(e.Status, e)
-   	return
-   }
+	u, e := services.CreateUser(user)
+	if e != nil {
+		//TODO: handle user creation error
+		c.JSON(e.Status, e)
+		return
+	}
 	c.JSON(http.StatusCreated, u)
-   return
+	return
 }
 
 func GetUser(c *gin.Context) {

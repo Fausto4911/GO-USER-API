@@ -2,6 +2,7 @@ package users
 
 import (
 	"fmt"
+	"github.com/fausto4911/GO-USER-API/utils/date_utils"
 	"github.com/fausto4911/GO-USER-API/utils/errors"
 )
 
@@ -9,8 +10,7 @@ var (
 	usersDB = make(map[int64]*User)
 )
 
-
-func (u *User) Get()  *errors.RestErr {
+func (u *User) Get() *errors.RestErr {
 	result := usersDB[u.Id]
 	if result == nil {
 		return errors.NewNotFoundError(fmt.Sprintf("user %d not found", u.Id))
@@ -30,7 +30,7 @@ func (u *User) Save() *errors.RestErr {
 	if current != nil {
 		return errors.NewBadRequestError(fmt.Sprintf("user %d already exist", u.Id))
 	}
+	u.CreateAt = date_utils.GetNowString()
 	usersDB[u.Id] = u
 	return nil
 }
-
